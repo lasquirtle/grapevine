@@ -2,6 +2,24 @@ const db = require('../models/budgetModels');
 
 const expensesController = {};
 
+
+
+expensesController.getExpenseCategories = (req, res, next) => {
+  const query = `
+    SELECT * FROM expense_categories
+  `
+  db.query(query)
+    .then(result => {
+      return res.status(200).json(result.rows);
+    })
+    .catch(err => {
+      return next({
+        log: `expensesController.getExpenseCategories: ${err}`,
+        message: "Error getting expense categories"
+      })
+    })
+}
+
 expensesController.addExpenseCategory = (req, res, next) => {
   const { category_name, budget_amount } = req.query;
   const array = [category_name, budget_amount];
@@ -12,7 +30,7 @@ expensesController.addExpenseCategory = (req, res, next) => {
       return next();
     }).catch(err => {
       return next({
-        log: `expensesController.addExpenseCategory: error posting new expense category, ${err}`,
+        log: `expensesController.addExpenseCategory: ${err}`,
         message: "Error creating new expense category"
       })
     })
@@ -28,7 +46,7 @@ expensesController.deleteExpenseCategory = (req, res, next) => {
       return next();
     }).catch(err => {
       return next({
-        log: `expensesController.deleteExpenseCategory: error deleting new expense category, ${err}`,
+        log: `expensesController.deleteExpenseCategory: ${err}`,
         message: "Error deleting new expense category"
       })
     })
@@ -50,7 +68,7 @@ expensesController.updateExpenseCategory = (req, res, next) => {
       return next();
     }).catch(err => {
       return next({
-        log: `expensesController.addExpenseCategory: error updating expense category, ${err}`,
+        log: `expensesController.addExpenseCategory: ${err}`,
         message: "Error updating expense category"
       })
     })

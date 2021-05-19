@@ -6,6 +6,12 @@ const savingsController = require('../controllers/savingsController');
 
 const router = express.Router();
 
+// READING CATEGORIES
+router.get('/expense', expensesController.getExpenseCategories);
+router.get('/income', incomeController.getIncomeCategories);
+router.get('/savings', savingsController.getSavingsCategories);
+
+
 // ADDING CATEGORIES
 router.post('/expense', expensesController.addExpenseCategory, (req, res) => {
   return res.status(200).send('Successfully created expense category');

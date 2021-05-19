@@ -7,6 +7,13 @@ const savingsItemController = require('../controllers/savingsItemController');
 const router = express.Router();
 
 
+// READING ITEMS
+router.get('/expense', expenseItemController.getExpenseItems);
+router.get('/income', incomeItemController.getIncomeItems);
+router.get('/savings', savingsItemController.getSavingsItems);
+
+
+
 // ADDING ITEMS
 router.post('/expense', expenseItemController.addExpenseItem, (req, res) => {
   return res.status(200).send('Successfully added expense item')

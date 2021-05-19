@@ -2,6 +2,23 @@ const db = require('../models/budgetModels');
 
 const incomeController = {};
 
+
+incomeController.getIncomeCategories = (req, res, next) => {
+  const query = `
+    SELECT * FROM income_categories
+  `
+  db.query(query)
+    .then(result => {
+      return res.status(200).json(result.rows);
+    })
+    .catch(err => {
+      return next({
+        log: `incomeController.getIncomeCategories: ${err}`,
+        message: "Error getting income categories"
+      })
+    })
+}
+
 incomeController.addIncomeCategory = (req, res, next) => {
   const { category_name, budget_amount } = req.query;
   const array = [category_name, budget_amount];

@@ -28,11 +28,11 @@ module.exports = {
   },
   // resolve: { extensions: ["*", ".js", ".jsx"] },
   devServer: {
-    publicPath: '/build/',
+    host: 'localhost',
     port: 8080,
     proxy: {
-      // '/api/': 'http://localhost:3000'
-  }
+      '/categories/expense': 'http://localhost:3000'
+    },
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

@@ -2,6 +2,24 @@ const db = require('../models/budgetModels');
 
 const savingsController = {};
 
+
+
+savingsController.getSavingsCategories = (req, res, next) => {
+  const query = `
+    SELECT * FROM savings_categories
+  `
+  db.query(query)
+    .then(result => {
+      return res.status(200).json(result.rows);
+    })
+    .catch(err => {
+      return next({
+        log: `savingsController.getSavingsCategories: ${err}`,
+        message: "Error getting savings categories"
+      })
+    })
+}
+
 savingsController.addSavingsCategory = (req, res, next) => {
   const { category_name, budget_amount } = req.query;
   const array = [category_name, budget_amount];

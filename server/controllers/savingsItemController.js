@@ -2,6 +2,21 @@ const db = require('../models/budgetModels');
 
 const savingsItemController = {}
 
+savingsItemController.getSavingsItems = (req, res, next) => {
+  const query = `
+    SELECT * FROM savings
+  `
+  db.query(query)
+    .then(result => {
+      return res.status(200).json(result.rows)
+    }).catch(err => {
+      return next({
+        log: `savingsItemController.getSavingsItems: ${err}`,
+        message: "Error getting savings items"
+      })
+    })
+}
+
 savingsItemController.addSavingsItem = (req, res, next) => {
   const { date, amount, category_name, description } = req.query;
   const categoryInput = [category_name];

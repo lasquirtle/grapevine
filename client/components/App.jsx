@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Table from './Table.jsx';
 
 class App extends Component {
@@ -6,7 +7,15 @@ class App extends Component {
     return(
       <div className="App">
       <h1>this is a react component</h1>
-      <Table />
+      <Router>
+        <Switch>
+          <Route path="/" component={Table} />
+        </Switch>
+        <Switch>
+          <Route path="/categories/expense" component={Table} />
+        </Switch>
+      </Router>
+
     </div>
     );
   };
