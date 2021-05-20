@@ -19,6 +19,7 @@ expenseItemController.getExpenseItems = (req, res, next) => {
 }
 
 expenseItemController.addExpenseItem = (req, res, next) => {
+  console.log(req.query);
   const { date, amount, category_name, description } = req.query;
   const categoryInput = [category_name];
   const findId = `

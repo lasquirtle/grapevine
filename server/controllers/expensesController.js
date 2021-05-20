@@ -10,7 +10,7 @@ expensesController.getExpenseCategories = (req, res, next) => {
   `
   db.query(query)
     .then(result => {
-      return res.status(200).json(result.rows);
+      return res.status(200).send(result.rows);
     })
     .catch(err => {
       return next({
