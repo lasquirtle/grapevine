@@ -25,11 +25,12 @@ const AddIncomeCategory = () => {
 
   return(
     <div className='section'>
+      <h2>Add Income Category</h2>      
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Category Name</label>
-        <input id='savingsName' type='text' {...register('category_name')}></input>
+        <input id='savingsName' autocomplete='off' type='text' {...register('category_name')}></input>
         <label>Budget Amount</label>
-        <input id='budgetAmount' type='text' {...register('budget_amount')}></input>
+        <input id='budgetAmount' autocomplete='off' type='text' {...register('budget_amount')}></input>
         <input type="submit"/>
       </form>
       <Link to={'/'}>

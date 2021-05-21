@@ -5,19 +5,22 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 class SavingsCategories extends Component {
   render() {
+
     const columns = [
       {name: 'Goal Name', selector: 'category_name'},
       {name: 'Goal Amount', selector: 'budget_amount'},
       {name: 'Amount Saved'}
     ]
     const data = this.props.savingsCategories
+
     return( 
-      <div>
+      <div>        
         <DataTable 
-          title='Savings Categories'
+          title='Savings'
           data={data}
           columns={columns}
         />
+        <div className='buttons'>
         <Link to={'/addsavingscategory'}>
           <button type='button'>Add Category</button>
         </Link>        
@@ -27,6 +30,7 @@ class SavingsCategories extends Component {
         <Link to={'/viewsavings'}>
           <button type='button'>View All Contributions</button>
         </Link>
+        </div>
       </div>
 
     )

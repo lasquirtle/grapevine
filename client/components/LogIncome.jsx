@@ -25,15 +25,16 @@ const LogIncome = () => {
 
   return(
     <div className='section'>
+      <h2>Log Some Income</h2>      
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Date</label>
-        <input id='incomeDate' type='text' {...register('date')}></input>
+        <input id='incomeDate' autocomplete='off' type='text' {...register('date')}></input>
         <label>Category Name</label>
-        <input id='incomeName' type='text' {...register('category_name')}></input>
+        <input id='incomeName' autocomplete='off' type='text' {...register('category_name')}></input>
         <label>Description</label>
-        <input id='incomeDescription' type='text' {...register('description')}></input>
+        <input id='incomeDescription' autocomplete='off' type='text' {...register('description')}></input>
         <label>Amount</label>
-        <input id='incomeAmount' type='text' {...register('amount')}></input>
+        <input id='incomeAmount' autocomplete='off' type='text' {...register('amount')}></input>
         <input type="submit"/>
       </form>
       <Link to={'/'}>

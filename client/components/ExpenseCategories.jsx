@@ -10,10 +10,11 @@ class ExpenseCategories extends Component {
     return( 
       <div>
         <DataTable 
-        title='Expense Categories'
+        title='Expenses'
         data={data}
         columns={columns}
         />
+        <div className='buttons'>
         <Link to={'/addexpensecategory'}>
           <button type='button'>Add Category</button>
         </Link>
@@ -23,6 +24,7 @@ class ExpenseCategories extends Component {
         <Link to={'/viewexpenses'}>
           <button type='button'>View All Expenses</button>
         </Link>
+        </div>
       </div>
 
     )

@@ -21,7 +21,7 @@ class ExpenseLog extends Component {
       {name: 'Amount', selector: 'amount'}
     ]
     return(
-      <div className='section'>
+      <div className='section'>      
         <DataTable 
           title='Expense Log'
           data={data}

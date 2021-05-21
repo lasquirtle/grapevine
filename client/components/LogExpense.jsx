@@ -25,15 +25,16 @@ const LogExpense = () => {
 
   return(
     <div className='section'>
+      <h2>Log An Expense</h2>      
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Date</label>
-        <input id='expenseDate' type='text' {...register('date')}></input>
+        <input id='expenseDate' autocomplete='off' type='text' {...register('date')}></input>
         <label>Category Name</label>
-        <input id='expenseName' type='text' {...register('category_name')}></input>
+        <input id='expenseName' autocomplete='off' type='text' {...register('category_name')}></input>
         <label>Description</label>
-        <input id='expenseDescription' type='text' {...register('description')}></input>
+        <input id='expenseDescription' autocomplete='off' type='text' {...register('description')}></input>
         <label>Amount</label>
-        <input id='expenseAmount' type='text' {...register('amount')}></input>
+        <input id='expenseAmount' autocomplete='off' type='text' {...register('amount')}></input>
         <input type="submit"/>
       </form>
       <Link to={'/'}>
