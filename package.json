@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
-    "dev": "concurrently \"nodemon server/server.js\" \"webpack serve --open\" \"node server/models/userModel.js\""
+    "start": "nodemon server/server.js",
+    "dev": "concurrently \"nodemon server/server.js\" \"webpack serve --open\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.12.0",
+    "body-parser": "^1.19.0",
     "concurrently": "^6.1.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",

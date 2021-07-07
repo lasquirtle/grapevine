@@ -31,8 +31,9 @@ module.exports = {
     publicPath: '/build/',
     port: 8080,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    proxy: { 
-      '*': 'http://localhost:3000'
+    proxy: {
+      '/api/': 'http://localhost:3000'
+
   }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
