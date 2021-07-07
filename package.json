@@ -1,12 +1,12 @@
 {
-  "name": "lawrence-app",
+  "name": "grapevine",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
-    "dev": "concurrently \"nodemon server/server.js\" \"webpack serve --open\""
+    "dev": "concurrently \"nodemon server/server.js\" \"webpack serve --open\" \"node server/models/userModel.js\""
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,9 @@
     "@material-ui/core": "^4.12.0",
     "concurrently": "^6.1.0",
     "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.13.2",
     "nodemon": "^2.0.7",
     "pg": "^8.6.0",
     "react": "^17.0.2",
@@ -26,15 +28,16 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
-    "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.4",
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.4",
+    "style-loader": "^2.0.0",
     "webpack": "^5.37.0",
     "webpack-cli": "^4.7.0",
-    "style-loader": "^2.0.0",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
