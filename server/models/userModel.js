@@ -14,6 +14,23 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: {type: String, require: true, unique: true},
   password: {type: String, require: true },
+  admin: {type: Boolean, default: false}
 });
 
-module.exports = mongoose.model('user', userSchema);
+const threadSchema = new Schema({
+  user: {type: String, require: true},
+  title: {type: String, require: true},
+  body: {type: String, require: true},
+  created_at: {type: Date, default: Date.now},
+  comments: [
+    {
+      user: {type: String, require: true},
+      body: {type: String, require: true},
+      created_at: {type: Date, default: Date.now}
+    }
+  ]
+});
+
+const User = mongoose.model('user', userSchema);
+
+export default user;
