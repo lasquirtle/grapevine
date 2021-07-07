@@ -1,15 +1,21 @@
 const express = require("express");
 const app = express();
-// const path = require("path");
+const path = require("path");
 const router = require("./routes/router");
 const cookieParser = require("cookie-parser");
-const PORT = 3001;
+const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use('/', router);
+
+app.use('/api', router);
+
+app.get('*', (req, res) => {
+  // console.log(path.resolve(__dirname, "./index.html"))
+  return res.sendFile(path.resolve(__dirname, "../index.html"));
+})
 
 // Any other request is caught here 
 app.use((req, res) => res.status(400).send('Error 404: No content found'));
