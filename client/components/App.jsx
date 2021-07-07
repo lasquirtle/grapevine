@@ -1,11 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Login from "./Login.jsx";
+import SignUp from "./SignUp.jsx";
+import MainContainer from "../container/MainContainer.jsx";
 
 const App = () => {
   return (
     <div>
-      <h1>React App Component</h1>
-      <h2>hello world</h2>
+      <Switch>
+        <Route exact path='/'>
+          <Login/>
+        </Route>
+        <Route path='/signup'>
+          <SignUp/>
+        </Route>
+        <Route path='*'>
+          <MainContainer/>
+        </Route>
+      </Switch>
     </div>
   );
 };

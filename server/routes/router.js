@@ -4,9 +4,9 @@ const router = express.Router();
 
 console.log('Made it into routers');
 
-router.get("/", (req, res) => {
+router.get("*", (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, "../../index.html"));
-});
+}); 
 
 router.post("/createCategory", categoryController.addCategory, (req, res) => {
   console.log("Here");
