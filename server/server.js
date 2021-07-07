@@ -9,13 +9,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.use(express.static('client'))
 
-app.use('/api', router);
-
-app.get('*', (req, res) => {
+app.get('/signup', (req, res) => {
   // console.log(path.resolve(__dirname, "./index.html"))
   return res.sendFile(path.resolve(__dirname, "../index.html"));
 })
+
+app.use('/api', router);
 
 // Any other request is caught here 
 app.use((req, res) => res.status(400).send('Error 404: No content found'));
