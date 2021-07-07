@@ -1,4 +1,4 @@
-const db = require("../models/budgetModels");
+const user = require("../models/userModel");
 
 const controller = {};
 
