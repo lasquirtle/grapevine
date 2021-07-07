@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const router = require("./routes/router");
 const cookieParser = require("cookie-parser");
+const controllerController = require('./controllers/controllerController');
+const userController = require('./controllers/userController');
 const PORT = 3000;
 
 app.use(express.json());
