@@ -8,7 +8,6 @@ mongoose
 .then(() => console.log('Connected to Mongo DB Successfully'))
 .catch((err) => console.log(err));
 
-
 const commentSchema = new Schema({
   text: { type: String, required: true },
   createdAt: { type: Date, default: Date.now},
@@ -39,4 +38,4 @@ const autoPopulateCreator = function(next) {
 
 const Category = mongoose.model('category', categorySchema);
 
-module.exports = { Category }
+module.exports = Category;

@@ -32,8 +32,7 @@ module.exports = {
     port: 8080,
     headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
-      '/categories/': 'http://localhost:3000',
-      '/items/': 'http://localhost:3000'
+      '/api/': 'http://localhost:3000'
   }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]

@@ -3,8 +3,12 @@ const Category = require('../models/model');
 const categoryController = {};
 
 categoryController.addCategory = (req, res, next) => {
-  Category.create({title: req.body.newCategoryTitle})
+  console.log("req.body", req.body.title)
+  console.log("Category: ", Category);
+  const {title} = req.body;
+  Category.create({title: title})
           .then(data => {
+            console.log('data', data);
             res.locals.newCategory = data;
             return next();
           })
@@ -16,8 +20,11 @@ categoryController.addCategory = (req, res, next) => {
           })
 };
 
+
+
 categoryController.getCategory = (req, res, next) => {
-  Category.find({title: req.body.getCategoryTitle})
+  const {title} = req.body;
+  Category.find({title: title})
           .then(data => {
             res.locals.categoryData = data;
             return next();
@@ -43,3 +50,5 @@ categoryController.getAllCategories = (req, res, next) => {
             })
           })
 };
+
+module.exports = categoryController
