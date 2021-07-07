@@ -31,6 +31,24 @@ const threadSchema = new Schema({
   ]
 });
 
+const commentSchema = new Schema({
+  text: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
+  _creator: { type: Schema.ObjectId. ref: 'User'},
+  _thread: { type: Schema.ObjectId, ref: 'Thread'}
+});
+
+const autoPopulateCreator = function(next) {
+  this.populate({
+    path: '_creator',
+    select: 'username created -_id'
+  });
+  next();
+}
+
 const User = mongoose.model('user', userSchema);
+const Comment = mongoose.model('comment', commentSchema);
+const Thread = mongoose.model('thread', threadSchema);
+
 
 export default user;
