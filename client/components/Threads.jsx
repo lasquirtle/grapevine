@@ -8,17 +8,7 @@ const Threads = (props) => {
   const { database, subjectThreads, setSubjectThreads, currentSubject, setCommentList, setThreadId } = useContext(AppContext)
   const [newThreadTitle, setNewThreadTitle] = useState('')
   const [newThreadBody, setNewThreadBody] = useState('')
-
-  useEffect(() => {
-    console.log('from threads component', database)
-    console.log('threads from state', subjectThreads)
-    // setSubjectThreads(database.Threads[currentSubject])
-  })
-  // let threadList = ['Engineering is great', 'Engineering is is bunk', 'Engineering is whatever'];
-  let url = window.location.pathname.slice(1)
-  console.log(url)
-
-
+  
   let threadElements = [];
   subjectThreads.forEach((thread,index)=>{
     const { _id, thread_title, body, comments } = thread
@@ -41,9 +31,10 @@ const Threads = (props) => {
 
   const handleCreateNewThread = () => {
     const data = {
-      user: '', // Insert some logic to get user from the browser cookies
+      user: document.cookie.replace('userID=', ''), // Insert some logic to get user from the browser cookies
       thread_title: newThreadTitle,
-      body: newThreadBody
+      body: newThreadBody,
+      title: currentSubject,
     }
     fetch('/api/createThread', {
       method: 'POST',

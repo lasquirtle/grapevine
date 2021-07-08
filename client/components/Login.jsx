@@ -23,7 +23,7 @@ const Login = () => {
     })
     .then((res) => res.json())
     .then((data) => {
-      if (data === 'Logged in user') history.push('/categories')
+      if (data === 'Logged in user') history.push('/main')
       else history.push('/')
     })
 
