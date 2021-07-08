@@ -37,7 +37,8 @@ const SignUp = () => {
   }
 
   return(
-    <div>Sign Up
+    <div id="signup">
+      <h1>Sign Up</h1>
         <form id='Signup' onSubmit={handleSubmit}>
           <TextField placeholder="Username" onChange={handleUsernameChange}/>
           <TextField placeholder="Password" onChange={handlePasswordChange}/>

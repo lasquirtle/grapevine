@@ -12,8 +12,7 @@ const SubContainer = () => {
     threadIds.push( '/'+id )
   })
   return (
-    <div>
-      <div>Subcontainer container</div>
+    <div className='sub'>
       <Switch>
           <Route path={threadIds}>
             <Threads/>
