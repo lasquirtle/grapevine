@@ -139,11 +139,12 @@ a, a:visited, a:active {
 }
 
 .subjectTitle{
-  color:rgb(29, 2, 59);
+  color: white;
   font-size:x-large;
   font-weight:bold;
   padding:5px;
   border: 3px solid #8E7CC3;
   border-radius: 1em;
-  text-align:center
+  text-align:center;
+  background: #8E7CC3
 }

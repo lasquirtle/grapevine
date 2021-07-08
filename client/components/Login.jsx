@@ -44,7 +44,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <TextField placeholder="Username" onChange={handleUsernameChange}/>
           <br></br>
-          <TextField placeholder="Password" onChange={handlePasswordChange}/>
+          <TextField placeholder="Password" type="password" onChange={handlePasswordChange}/>
           <br></br>
           <Button type="submit">Log In</Button>
         </form>
