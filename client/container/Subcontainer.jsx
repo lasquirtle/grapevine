@@ -7,8 +7,9 @@ const SubContainer = () => {
   
   return (
     <div>
+      <div>Subcontainer container</div>
       <Switch>
-          <Route path={["/engineering","/squirtle","/misc"]}>
+          <Route path={["/main/engineering","/main/squirtle","/main/misc"]}>
             <Threads/>
           </Route>
           <Route component={Comments} path="/comments"/>

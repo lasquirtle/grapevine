@@ -1,4 +1,7 @@
 const Category = require("../models/model");
+
+const commentController = {};
+
 commentController.addComment = (req, res, next) => {
   const { _id, text } = req.body;
   Category.findOneAndUpdate(

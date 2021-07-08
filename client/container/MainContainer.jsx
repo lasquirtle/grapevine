@@ -26,7 +26,10 @@ const MainContainer = () => {
   }
   const { currentSubject, setCurrentSubject, setDatabase } = useContext(AppContext)
   useEffect(() => {
-    setDatabase(dummydata);
+    fetch('/api/getAllCategories')
+      .then(res=> res.json())
+      .then(data => console.log(data))
+    // setDatabase(dummydata);
   }, [])
 
   console.log('currentSubject', currentSubject)

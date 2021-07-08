@@ -11,7 +11,15 @@ const SignUp = () => {
   const history = useHistory();
 
   const handleSubmit = (e) => {
-    console.log('Placeholder')
+    console.log('From fetch', username, password, firstName, lastName);
+    fetch('/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({newUsername: username, newPassword: password, newFirstName: firstName, newLastName: lastName})
+    })
+    .then(() => history.push('/categories'))
   }
 
   // updates user info as user types
@@ -22,10 +30,10 @@ const SignUp = () => {
     setPassword(e.target.value)
   }
   const handleFirstNameChange = (e) => {
-    setUsername(e.target.value)
+    setFirstName(e.target.value)
   }
   const handleLastNameChange = (e) => {
-    setPassword(e.target.value)
+    setLastName(e.target.value)
   }
 
   return(

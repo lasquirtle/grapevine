@@ -19,7 +19,7 @@ const Categories = () => {
   categoriesArray.forEach(category => {
     let endpoint = category.toLowerCase();
     categoryElements.push(
-      <NavLink to={`/${endpoint}`} className="link" onClick={()=> setCurrentSubject(endpoint) }>
+      <NavLink to={`/main/${endpoint}`} className="link" onClick={()=> setCurrentSubject(endpoint) }>
         <p>{`${category}`} thread</p>
       </NavLink>
     )
