@@ -32,7 +32,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className='App'>
       <AppContext.Provider value={value}>
       <Switch>
         <Route exact path='/'>
@@ -43,9 +43,6 @@ const App = () => {
         </Route>
         <Route component={MainContainer} path='/'/>
       </Switch>
-      <NavLink to='/main' className="link" >
-        <p> To main</p>
-      </NavLink>
       </AppContext.Provider>
     </div>
   );

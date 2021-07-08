@@ -8,7 +8,7 @@ const Threads = (props) => {
   const { database, subjectThreads, setSubjectThreads, currentSubject, setCommentList, setThreadId } = useContext(AppContext)
   const [newThreadTitle, setNewThreadTitle] = useState('')
   const [newThreadBody, setNewThreadBody] = useState('')
-  
+
   let threadElements = [];
   subjectThreads.forEach((thread,index)=>{
     const { _id, thread_title, body, comments } = thread
@@ -17,7 +17,10 @@ const Threads = (props) => {
         setCommentList(comments);
         setThreadId(_id)
       }}>
-        <p className='threadTitle'> {thread_title} </p>
+        <div className="thread-links">
+          <p className='threadTitle'> {thread_title} </p>
+          <p className='threadBody'>{body}</p>
+        </div>
       </NavLink>
     )
   });
@@ -46,8 +49,12 @@ const Threads = (props) => {
   }
   
   return(
+    <div>
+      <div className='subjectTitle'>
+        {currentSubject.toUpperCase()}
+      </div>
     <div id='threads'>
-      <div>Threads Page</div>
+      
       {threadElements}
       {/* <Fab> 
         <AddIcon/>
@@ -57,6 +64,7 @@ const Threads = (props) => {
           <TextField placeholder="About" onChange={handleThreadBody} />
           <Button type="submit">Create</Button>
         </form>
+    </div>
     </div>
   )
 }

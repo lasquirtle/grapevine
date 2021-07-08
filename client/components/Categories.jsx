@@ -17,7 +17,7 @@ const Categories = () => {
         setSubjectThreads(threads)
         setCurrentSubject(title)
         } }>
-        <p>{`${title}`}</p>
+        <p>{`${title.toUpperCase()}`}</p>
       </NavLink>
     )
   })
@@ -38,7 +38,7 @@ const Categories = () => {
   }
 
   return(
-    <div>
+    <div id="categories">
       {categoryElements}
       {/* <Fab> 
         <AddIcon/>

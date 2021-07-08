@@ -36,8 +36,8 @@ const MainContainer = () => {
   }, [])
   console.log(database)
   return (
-     <div>
-      <h1 className='Title'>GrapeVine</h1>
+     <div id="main-display">
+        <h1 className='Title'>GrapeVine</h1>
       <div id="main-container"> 
       <Categories/>
         <div>

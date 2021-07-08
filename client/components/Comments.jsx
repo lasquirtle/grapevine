@@ -11,7 +11,9 @@ const Comments = () => {
   commentList.forEach(comment => {
     const { text, createdAt } = comment
     comments.push(
-      <p>{text} | {createdAt}</p>
+      <div className="comments">
+      <p className="comment-text">{text}</p><p className="date">{createdAt}</p>
+      </div>
     )
   })
 
@@ -38,11 +40,16 @@ const Comments = () => {
 
   return(
     <div>
+      <div>
+        Comments
+      </div>
+      <div>
       {comments}
       <form onSubmit={handleCreateComment}> 
           <TextField placeholder="Add new comment" onChange={handleCommentText}/>
           <Button type="submit">Add Comment</Button>
       </form>
+      </div>
     </div>
   )
 }

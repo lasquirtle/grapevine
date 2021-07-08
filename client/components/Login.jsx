@@ -39,15 +39,16 @@ const Login = () => {
   }
 
   return(
-    <div id="login">Login Page
+    <div id="login">
+      <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
           <TextField placeholder="Username" onChange={handleUsernameChange}/>
-          <TextField placeholder="Password" onChange={handlePasswordChange}/>
+          <br></br>
+          <TextField placeholder="Password" type="password" onChange={handlePasswordChange}/>
+          <br></br>
           <Button type="submit">Log In</Button>
         </form>
-        <Link to="/signup">
-        <button>Signup</button>
-        </Link>
+        <p>Don't have an account?</p><Link to="/signup">Sign up!</Link>
     </div>
   )
 }
