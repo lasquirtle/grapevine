@@ -21,7 +21,11 @@ const Login = () => {
       },
       body: JSON.stringify({username, password})
     })
-      .then(() => history.push('/categories'))
+      .then((res) => res.json())
+      .then((data) => {
+        if (data === 'Logged in user') history.push('/categories')
+        else history.push('/')
+      })
   }
 
   // updates username and password
