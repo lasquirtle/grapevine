@@ -1,4 +1,6 @@
-const Category = require("../models/model");
+
+const Category = require('../models/model');
+
 
 const threadController = {};
 
@@ -37,3 +39,4 @@ threadController.getAllThread = (req, res, next) => {
 
 
 module.exports = threadController;
+

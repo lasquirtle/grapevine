@@ -4,11 +4,9 @@ const categoryController = {};
 
 categoryController.addCategory = (req, res, next) => {
   console.log("req.body", req.body.title)
-  console.log("Category: ", Category);
   const {title} = req.body;
-  Category.create({title: title})
+  Category.create({title})
           .then(data => {
-            console.log('data', data);
             res.locals.newCategory = data;
             return next();
           })
@@ -24,7 +22,7 @@ categoryController.addCategory = (req, res, next) => {
 
 categoryController.getCategory = (req, res, next) => {
   const {title} = req.body;
-  Category.find({title: title})
+  Category.find({title})
           .then(data => {
             res.locals.categoryData = data;
             console.log(res.locals.categoryData);
