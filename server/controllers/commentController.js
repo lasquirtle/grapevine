@@ -1,33 +1,36 @@
-// import db from './../models';
+const Category = require("../models/model");
+commentController.addComment = (req, res, next) => {
+  const { _id, text } = req.body;
+  Category.findOneAndUpdate(
+    { _id: res.locals.categoryData[0]._id },
+    { $push: { "threads.$[outer].comments": { text } } },
+    { arrayFilters: [{ "outer._id": _id }] },
+    (error, data) => {
+      if (error) {
+        return next({
+          log: `Error in addComment middleware, ${err}`,
+          message: "Error adding comment",
+        });
+      } else {
+        return next();
+      }
+    }
+  );
+};
 
-// const commentController = {};
+commentController.getAllComment = (req, res, next) => {
+  const { _id } = req.body;
+  Category.findOne({ _id: res.locals.categoryData[0]._id }, (error, data) => {
+    if (error) {
+      return next({
+        log: `Error in getcomment middleware, ${err}`,
+        message: "Error getting comment",
+      });
+    } else {
+      data = data.threads.filter((thread) => thread._id.toString() === _id);
+      return next();
+    }
+  });
+};
 
-// commentController.post = (req, res) => {
-//   const {
-//     text,
-//     userId,
-//     postId
-//   } = req.body;
-
-//   const comment = new db.Comment({
-//     text, 
-//     _creator: userId,
-//     _post: postId
-//   });
-
-//   comment.save().then((newComment) => {
-//     db.Post.findByIdAndUpdate(
-//       postId,
-//       {$push: { '_comments': newComment._id }}
-//       ).then((existingPost => {
-//         res.status(200).json({
-//           success: true,
-//           data: newUser,
-//           existingPost
-//         });
-//       }))
-//     .catch((err) => next({
-//       log: `Error in commentController.commentSave: ${err}`, 
-//       message: 'comment.save error '
-//       }))
-//   )}
+module.exports = commentController;
