@@ -25,6 +25,7 @@ categoryController.getCategory = (req, res, next) => {
   Category.find({title})
           .then(data => {
             res.locals.categoryData = data;
+            console.log(res.locals.categoryData);
             return next();
           })
           .catch(err => {

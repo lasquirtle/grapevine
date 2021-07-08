@@ -17,7 +17,7 @@ const commentSchema = new Schema({
 
 const threadSchema = new Schema({
   user: {type: String, required: true},
-  title: {type: String, required: true},
+  thread_title: {type: String, required: true},
   body: {type: String, required: true},
   created_at: {type: Date, default: Date.now},
   comments: [commentSchema]

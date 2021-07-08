@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-// const path = require("path");
+const path = require("path");
 const router = require("./routes/router");
 const cookieParser = require("cookie-parser");
 const PORT = 3000;
@@ -8,6 +8,14 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+
+app.use(express.static('client'))
+
+app.get('/signup', (req, res) => {
+  // console.log(path.resolve(__dirname, "./index.html"))
+  return res.sendFile(path.resolve(__dirname, "../index.html"));
+})
 
 app.use('/api', router);
 
