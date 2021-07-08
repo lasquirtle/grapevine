@@ -33,8 +33,7 @@ module.exports = {
     headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
       '/': 'http://localhost:3000'
-
-  }
+    }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

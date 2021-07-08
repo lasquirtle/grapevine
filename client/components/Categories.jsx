@@ -1,32 +1,52 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { TextField, Button, Fab } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
 import { AppContext } from "./App.jsx";
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-router-dom";
 
 const Categories = () => {
-  const categoriesArray = ['Engineering', 'Squirtle', 'Misc']
+  const [newCategoryName, setNewCategoryName] = useState('');
   const categoryElements = [];
-  const { setCurrentSubject } = useContext(AppContext)
-  // const handleClick = (e) => {
-  //   console.log('click endpoint', e)
-  //   // fetch(`/api/${endpoint}`)
-  //   //   .then(res => res.json())
-  //   //   .then(data => {
-  //   //     console.log(data)
-  //   //     // manipulate data as needed
-  //   //   })
-  // }
+  const { setCurrentSubject, database, setSubjectThreads } = useContext(AppContext)
 
-  categoriesArray.forEach(category => {
-    let endpoint = category.toLowerCase();
+  database.forEach(category => {
+    const { _id, title, threads }= category
     categoryElements.push(
-      <NavLink to={`/main/${endpoint}`} className="link" onClick={()=> setCurrentSubject(endpoint) }>
-        <p>{`${category}`} thread</p>
+
+      <NavLink to={`/${_id}`} className="link" onClick={()=> {
+        setSubjectThreads(threads)
+        setCurrentSubject(title)
+        } }>
+        <p>{`${title}`}</p>
       </NavLink>
     )
   })
+
+  const handleCategoryName = (e) => {
+    setNewCategoryName(e.target.value)
+    console.log(newCategoryName)
+  }
+
+  const handleCreateCategory = () => {
+    fetch('/api/createCategory', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({title: newCategoryName})
+    })
+  }
+
   return(
     <div>
       {categoryElements}
+      {/* <Fab> 
+        <AddIcon/>
+      </Fab> */}
+        <form onSubmit={handleCreateCategory}> 
+          <TextField placeholder="Add new category" onChange={handleCategoryName}/>
+          <Button type="submit">Create</Button>
+        </form>
     </div>
   )
 }

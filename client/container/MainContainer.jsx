@@ -12,29 +12,29 @@ const MainContainer = () => {
   
   // query database for list of all threads across all objects
   // store it in an object like {engineering:[thread1,thread2], squirtle:[thread1,thread2,etc]}
-  let dummydata = {
-    Threads:{
-      engineering:['Engineering is great', 'Engineering is is bunk', 'Engineering is whatever'],
-      squirtle:['Squirtle sucks','Squirtle best starter','Squirtle is okay'],
-      misc:['misc thread1','misc thread2','misc thread3','misc thread4']
-    },
-    Comments:{
-      engineering:['Ecomment 1','Ecomment 2','Ecomment 3','Ecomment 4'],
-      squirtle:['Scomment 1','Scomment 2','Scomment 3','Scomment 4'],
-      misc:['misc comment 1','misc comment 2','misc comment 3','misc comment 4']
-    }
-  }
-  const { currentSubject, setCurrentSubject, setDatabase } = useContext(AppContext)
+  // let dummydata = {
+  //   Threads:{
+  //     engineering:['Engineering is great', 'Engineering is is bunk', 'Engineering is whatever'],
+  //     squirtle:['Squirtle sucks','Squirtle best starter','Squirtle is okay'],
+  //     misc:['misc thread1','misc thread2','misc thread3','misc thread4']
+  //   },
+  //   Comments:{
+  //     engineering:['Ecomment 1','Ecomment 2','Ecomment 3','Ecomment 4'],
+  //     squirtle:['Scomment 1','Scomment 2','Scomment 3','Scomment 4'],
+  //     misc:['misc comment 1','misc comment 2','misc comment 3','misc comment 4']
+  //   }
+  // }
+
+  const { currentSubject, setCurrentSubject, categories, setCategories, database, setDatabase } = useContext(AppContext)
   useEffect(() => {
     fetch('/api/getAllCategories')
-      .then(res=> res.json())
-      .then(data => console.log(data))
-    // setDatabase(dummydata);
+      .then(res => res.json())
+      .then(data => {
+        setDatabase(data)
+      })
+      .catch(err => console.log(err))
   }, [])
-
-  console.log('currentSubject', currentSubject)
-
-
+  console.log(database)
   return (
      <div>
       <h1 className='Title'>GrapeVine</h1>
