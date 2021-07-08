@@ -12,6 +12,7 @@ const Categories = () => {
   database.forEach(category => {
     const { _id, title, threads }= category
     categoryElements.push(
+
       <NavLink to={`/${_id}`} className="link" onClick={()=> {
         setSubjectThreads(threads)
         setCurrentSubject(title)

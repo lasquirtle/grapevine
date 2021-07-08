@@ -13,6 +13,7 @@ const SubContainer = () => {
   })
   return (
     <div>
+      <div>Subcontainer container</div>
       <Switch>
           <Route path={threadIds}>
             <Threads/>

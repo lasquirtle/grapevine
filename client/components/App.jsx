@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import Login from "./Login.jsx";
 import SignUp from "./SignUp.jsx";
 import MainContainer from "../container/MainContainer.jsx";
@@ -41,8 +41,11 @@ const App = () => {
         <Route path='/signup'>
           <SignUp/>
         </Route>
-        <Route component={MainContainer} path='/'/>
+        <Route component={MainContainer} path='/main'/>
       </Switch>
+      <NavLink to='/main' className="link" >
+        <p> To main</p>
+      </NavLink>
       </AppContext.Provider>
     </div>
   );

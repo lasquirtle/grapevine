@@ -14,18 +14,20 @@ const Login = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('/api/user', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({username, password})
     })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data === 'Logged in user') history.push('/categories')
-        else history.push('/')
-      })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data === 'Logged in user') history.push('/categories')
+      else history.push('/')
+    })
+
+
   }
 
   // updates username and password
