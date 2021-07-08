@@ -3,8 +3,8 @@ const app = express();
 const path = require("path");
 const router = require("./routes/router");
 const cookieParser = require("cookie-parser");
-const controllerController = require('./controllers/controllerController');
-const userController = require('./controllers/userController');
+// const controllerController = require('./controllers/controllerController');
+// const userController = require('./controllers/userController');
 const PORT = 3000;
 
 app.use(express.json());
@@ -12,13 +12,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(express.static('client'))
+app.use('/api', router);
 
-app.get('/signup', (req, res) => {
+app.get('*', (req, res) => {
   // console.log(path.resolve(__dirname, "./index.html"))
   return res.sendFile(path.resolve(__dirname, "../index.html"));
 })
 
-app.use('/api', router);
 
 // Any other request is caught here 
 app.use((req, res) => res.status(400).send('Error 404: No content found'));

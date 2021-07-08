@@ -34,7 +34,7 @@ const threadSchema = new Schema({
 const commentSchema = new Schema({
   text: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
-  _creator: { type: Schema.ObjectId. ref: 'User'},
+  _creator: { type: Schema.ObjectId, ref: 'User'},
   _thread: { type: Schema.ObjectId, ref: 'Thread'}
 });
 
@@ -51,4 +51,4 @@ const Comment = mongoose.model('comment', commentSchema);
 const Thread = mongoose.model('thread', threadSchema);
 
 
-export default user;
+module.exports = User;

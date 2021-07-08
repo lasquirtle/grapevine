@@ -3,9 +3,28 @@ body {
 }
 
 #main-container {
-  /* display: flex; */
+  display: flex;
+  border:1px solid black;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #navbar {
   border: 1px solid black;
+}
+
+#threads{
+  font-size: large;
+  border:1px solid red;
+}
+
+.threadPreview{
+  color:royalblue;
+  font-size:small
+
+}
+
+.Title{
+  color:purple;
+  outline-color: seagreen;
 }
