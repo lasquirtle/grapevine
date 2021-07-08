@@ -30,7 +30,7 @@ router.post("/signup", authController.createUser, (req, res) => {
 });
 
 router.post("/login", authController.login, (req, res) => {
-  return res.status(200).send("Logged in user");
+  return res.status(200).json("Logged in user");
 });
 
 router.post("/createThread", categoryController.getCategory, threadController.addThread, (req, res) => {

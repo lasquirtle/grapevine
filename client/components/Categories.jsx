@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Link, NavLink } from "react-rou
 const Categories = () => {
   const categoriesArray = ['Engineering', 'Squirtle', 'Misc']
   const categoryElements = [];
-  const { setCurrentSubject } = useContext(AppContext)
+  const { setCurrentSubject, database, setSubjectThreads } = useContext(AppContext)
   // const handleClick = (e) => {
   //   console.log('click endpoint', e)
   //   // fetch(`/api/${endpoint}`)
@@ -16,11 +16,14 @@ const Categories = () => {
   //   //   })
   // }
 
-  categoriesArray.forEach(category => {
-    let endpoint = category.toLowerCase();
+  database.forEach(category => {
+    const { _id, title, threads }= category
     categoryElements.push(
-      <NavLink to={`/${endpoint}`} className="link" onClick={()=> setCurrentSubject(endpoint) }>
-        <p>{`${category}`} thread</p>
+      <NavLink to={`/${_id}`} className="link" onClick={()=> {
+        setSubjectThreads(threads)
+        setCurrentSubject(title)
+        } }>
+        <p>{`${title}`} thread</p>
       </NavLink>
     )
   })

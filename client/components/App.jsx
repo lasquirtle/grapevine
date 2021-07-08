@@ -8,18 +8,24 @@ export const AppContext = React.createContext();
 
 const App = () => {
   const [currentSubject, setCurrentSubject] = useState('');
-  const [database, setDatabase] = useState({});
+  const [categories, setCategories] = useState([]);
   const [subjectThreads, setSubjectThreads] = useState([]);
-  const [threadComments, setThreadComments] = useState([])
+  const [threadComments, setThreadComments] = useState([]);
+  const [database, setDatabase] = useState([]);
+  const [commentList, setCommentList] = useState([]);
   const value = {
     currentSubject,
     setCurrentSubject,
-    database,
-    setDatabase,
+    categories,
+    setCategories,
     subjectThreads,
     setSubjectThreads,
     threadComments,
-    setThreadComments
+    setThreadComments,
+    database,
+    setDatabase,
+    commentList,
+    setCommentList,
   }
 
   return (
