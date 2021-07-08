@@ -3,7 +3,7 @@ const Category = require('../models/model');
 const categoryController = {};
 
 categoryController.addCategory = (req, res, next) => {
-  console.log("req.body", req.body.title)
+  console.log("req.body", req.body)
   const {title} = req.body;
   Category.create({title})
           .then(data => {

@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 });
 
 router.post("/createCategory", authController.checkCookie, categoryController.addCategory, (req, res) => {
-
   return res.status(200).json(res.locals.newCategory);
 });
 

@@ -13,6 +13,7 @@ const App = () => {
   const [threadComments, setThreadComments] = useState([]);
   const [database, setDatabase] = useState([]);
   const [commentList, setCommentList] = useState([]);
+  const [threadId, setThreadId] = useState('')
   const value = {
     currentSubject,
     setCurrentSubject,
@@ -26,6 +27,8 @@ const App = () => {
     setDatabase,
     commentList,
     setCommentList,
+    threadId, 
+    setThreadId,
   }
 
   return (
