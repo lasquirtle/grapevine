@@ -28,7 +28,7 @@ const MainContainer = () => {
   useEffect(() => {
     setDatabase(dummydata);
   }, [])
-  // setCurrentSubject(window.location.pathname);
+
   console.log('currentSubject', currentSubject)
 
 
