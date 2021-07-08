@@ -41,7 +41,7 @@ const App = () => {
         <Route path='/signup'>
           <SignUp/>
         </Route>
-        <Route component={MainContainer} path='/main'/>
+        <Route component={MainContainer} path='/'/>
       </Switch>
       <NavLink to='/main' className="link" >
         <p> To main</p>
